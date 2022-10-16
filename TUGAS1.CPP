@@ -19,6 +19,7 @@ struct data maba[nmax]; // deklarasi variabel bertipe struct
 void tambah_data();     // prototype fungsi void
 void hapus_data();
 void tampilkan_data();
+void update_data();
 main()
 {
     int pil;
@@ -27,7 +28,8 @@ menu:
     cout << "1. tambah data\n";
     cout << "2. hapus data \n";
     cout << "3. tampilkan data \n";
-    cout << "4. keluar \n";
+    cout << "4. update data \n";
+    cout << "5. keluar";
     cout << "\n Pilih menu (1/2/3/4) ? ";
     cin >> pil;
     if (pil == 1)
@@ -37,7 +39,9 @@ menu:
     else if (pil == 3)
         tampilkan_data();
     else if (pil == 4)
-        exit(1); // atau bisa pakai return(0)
+        update_data();
+    else if (pil == 5)
+         exit(1); // atau bisa pakai return(0)
     else
     {
         cout << "pilihan tak tersedia...!!!\n";
@@ -95,5 +99,22 @@ void tampilkan_data()
             cout << "\nKom : " << maba[i].kom;
             cout << endl;
         }
+    }
+}
+
+void update_data()
+{
+    int data;
+    cout << "pilih data yang akan diubah : ";
+    cin >> data;
+    if ((data <= n) && (data >=1))
+    {
+        cout << "data ke "<< data<<endl;
+        cout << "masukkan nama yang baru : ";
+        cin >> maba[data-1].nama;
+        cout << "masukkan NIM yang baru : ";
+        cin >> maba[data-1].nim;
+        cout << "masukkan KOM yang baru :";
+        cin >> maba[data-1].kom;
     }
 }
